@@ -29,5 +29,14 @@ cats.addEventListener('click',e=>{if(e.target.dataset.category){active=e.target.
 services.addEventListener('click',e=>{const name=e.target.dataset.name;if(!name)return;const item=Object.values(catalog).flat().find(s=>s[0]===name);cart=cart.some(s=>s[0]===name)?cart.filter(s=>s[0]!==name):[...cart,item];render()});
 cartItems.addEventListener('click',e=>{if(e.target.dataset.remove){cart=cart.filter(s=>s[0]!==e.target.dataset.remove);render()}});
 document.querySelector('#cartButton').onclick=openDrawer;document.querySelector('#closeDrawer').onclick=closeDrawer;overlay.onclick=closeDrawer;
-document.querySelector('#continue').onclick=()=>{closeDrawer();document.querySelector('#modal').classList.add('open')};document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').classList.remove('open');
+const whatsappUrl='https://chat.whatsapp.com/Lv1FJlEjPhrDb8r5HyubqI?utm_source=ig&utm_medium=social&utm_content=link_in_bio';
+document.querySelector('#continue').onclick=()=>{
+  if(!cart.length)return;
+  const total=cart.reduce((sum,s)=>sum+money(s[2]),0).toLocaleString('es-AR');
+  const message=`Hola Jeszell! Quiero reservar:\n\n${cart.map(s=>`• ${s[0]} — ${s[2]}`).join('\n')}\n\nTotal estimado: $${total}`;
+  try{navigator.clipboard.writeText(message)}catch{}
+  closeDrawer();
+  document.querySelector('#modal').classList.add('open');
+  window.open(whatsappUrl+'&text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
+};document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').classList.remove('open');
 document.querySelector('#login').onclick=()=>alert('El acceso de clientes estará disponible próximamente.');render();
