@@ -46,4 +46,8 @@ document.querySelector('#continue').onclick=()=>{
 document.querySelector('#copyMessage').onclick=async()=>{try{await navigator.clipboard.writeText(pendingMessage);document.querySelector('#copyMessage').textContent='¡Mensaje copiado!';document.querySelector('#openWhatsapp').style.display='block'}catch{document.querySelector('#copyMessage').textContent='No se pudo copiar; mantené presionado para copiar';document.querySelector('#openWhatsapp').style.display='block'}};
 document.querySelector('#openWhatsapp').onclick=()=>window.open(whatsappUrl+'&text='+encodeURIComponent(pendingMessage),'_blank','noopener,noreferrer');
 document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').classList.remove('open');
+const themeToggle=document.querySelector('#themeToggle');
+if(localStorage.getItem('jeszell-theme')==='dark')document.body.classList.add('dark');
+if(document.body.classList.contains('dark'))themeToggle.innerHTML='☀ <span>Modo claro</span>';
+themeToggle.onclick=()=>{const dark=document.body.classList.toggle('dark');localStorage.setItem('jeszell-theme',dark?'dark':'light');themeToggle.innerHTML=dark?'☀ <span>Modo claro</span>':'☾ <span>Modo oscuro</span>'};
 render();
