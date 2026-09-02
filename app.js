@@ -47,4 +47,4 @@ document.querySelector('#continue').onclick=()=>{
 document.querySelector('#copyMessage').onclick=async()=>{try{await navigator.clipboard.writeText(pendingMessage);document.querySelector('#copyMessage').textContent='¡Copiado!'}catch{document.querySelector('#copyMessage').textContent='Seleccioná y copiá el texto'}};
 document.querySelector('#openWhatsapp').onclick=()=>window.open(whatsappUrl+'&text='+encodeURIComponent(pendingMessage),'_blank','noopener,noreferrer');
 document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').classList.remove('open');
-document.querySelector('#login').onclick=()=>alert('El acceso de clientes estará disponible próximamente.');render();
+render();
