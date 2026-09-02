@@ -41,10 +41,9 @@ document.querySelector('#continue').onclick=()=>{
   const message=`Hola Jeszell! Quiero reservar:\n\n${cart.map(s=>`• ${s[0]} — ${s[2]}`).join('\n')}\n\nTotal estimado: $${total}`;
   closeDrawer();
   pendingMessage=message;
-  document.querySelector('#whatsappMessage').textContent=message;
   document.querySelector('#modal').classList.add('open');
 };
-document.querySelector('#copyMessage').onclick=async()=>{try{await navigator.clipboard.writeText(pendingMessage);document.querySelector('#copyMessage').textContent='¡Copiado!'}catch{document.querySelector('#copyMessage').textContent='Seleccioná y copiá el texto'}};
+document.querySelector('#copyMessage').onclick=async()=>{try{await navigator.clipboard.writeText(pendingMessage);document.querySelector('#copyMessage').textContent='¡Mensaje copiado!';document.querySelector('#openWhatsapp').style.display='block'}catch{document.querySelector('#copyMessage').textContent='No se pudo copiar; mantené presionado para copiar';document.querySelector('#openWhatsapp').style.display='block'}};
 document.querySelector('#openWhatsapp').onclick=()=>window.open(whatsappUrl+'&text='+encodeURIComponent(pendingMessage),'_blank','noopener,noreferrer');
 document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').classList.remove('open');
 render();
