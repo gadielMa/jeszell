@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#667c7b" />
+  <title>Jeszell Estética & Pilates | Agenda online</title>
+  <meta name="description" content="Agenda online tu próxima cita en Jeszell Estética & Pilates." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner"><a class="brand" href="#inicio"><img src="public/jeszell-logo.svg" alt="Jeszell" /><span>Jeszell</span></a><button class="login" id="login">Iniciar sesión</button></div></header>
+  <main id="inicio">
+    <section class="hero"><div class="hero-inner"><img class="hero-logo" src="public/jeszell-logo.svg" alt="Logo Jeszell Estética y Pilates" /><div><p class="eyebrow">BIENESTAR PARA VOS</p><h1>Jeszell Estética<br>&amp; Pilates</h1><p class="intro">Un espacio pensado para que te sientas bien, con tratamientos de estética y clases de pilates personalizadas.</p><div class="hero-meta"><span>⌖ Ramos Mejía, Buenos Aires</span><span>★ 5.0</span></div></div></div></section>
+    <section class="booking" aria-labelledby="agenda-title"><div class="booking-inner">
+      <aside class="sidebar"><h2 id="agenda-title">Agenda tu cita</h2><p>Elegí el servicio que querés reservar.</p><nav id="categories" aria-label="Categorías de servicios"></nav></aside>
+      <div class="catalog"><div class="catalog-heading"><div><p class="section-label">SERVICIOS</p><h2 id="category-title">Todos los servicios</h2></div><button class="cart-button" id="cartButton" aria-label="Ver reserva">🛍 <b id="count">0</b></button></div><div id="services" class="services"></div></div>
+    </div></section>
+    <section class="about"><div><p class="section-label">JESZELL</p><h2>Tu momento de bienestar</h2></div><p>Te acompañamos con atención personalizada, profesionalismo y una mirada integral del cuidado personal.</p></section>
+  </main>
+  <footer><div><img src="public/jeszell-logo.svg" alt="Jeszell" /><p>© 2026 Jeszell Estética & Pilates</p></div><p>Reservas online</p></footer>
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Tu reserva"><button class="close" id="closeDrawer" aria-label="Cerrar">×</button><p class="section-label">TU RESERVA</p><h2>Servicios seleccionados</h2><div id="cartItems" class="cart-items"><p class="empty">Todavía no seleccionaste ningún servicio.</p></div><div class="drawer-bottom"><div class="total"><span>Total</span><strong id="total">$0</strong></div><button class="continue" id="continue">Continuar reserva</button></div></aside>
+  <div class="modal" id="modal" role="dialog" aria-modal="true"><div><button class="close" id="closeModal">×</button><div class="check">✓</div><h2>¡Tu reserva está casi lista!</h2><p>En breve nos comunicaremos con vos para confirmar el día y horario de tu cita.</p><button class="continue" id="done">Entendido</button></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
