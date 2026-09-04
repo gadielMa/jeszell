@@ -33,7 +33,7 @@ cats.addEventListener('click',e=>{if(e.target.dataset.category){active=e.target.
 services.addEventListener('click',e=>{const name=e.target.dataset.name;if(!name)return;const item=Object.values(catalog).flat().find(s=>s[0]===name);cart=cart.some(s=>s[0]===name)?cart.filter(s=>s[0]!==name):[...cart,item];render()});
 cartItems.addEventListener('click',e=>{if(e.target.dataset.remove){cart=cart.filter(s=>s[0]!==e.target.dataset.remove);render()}});
 document.querySelector('#cartButton').onclick=openDrawer;document.querySelector('#closeDrawer').onclick=closeDrawer;overlay.onclick=closeDrawer;
-const whatsappUrl='https://wa.me/message/6QZG4SN6ZHR7K1';
+const whatsappUrl='https://wa.me/5491127442407';
 document.querySelectorAll('a[href*="chat.whatsapp.com"]').forEach((link)=>{link.href=whatsappUrl});
 let pendingMessage='';
 document.querySelector('#continue').onclick=()=>{
