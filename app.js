@@ -33,7 +33,8 @@ cats.addEventListener('click',e=>{if(e.target.dataset.category){active=e.target.
 services.addEventListener('click',e=>{const name=e.target.dataset.name;if(!name)return;const item=Object.values(catalog).flat().find(s=>s[0]===name);cart=cart.some(s=>s[0]===name)?cart.filter(s=>s[0]!==name):[...cart,item];render()});
 cartItems.addEventListener('click',e=>{if(e.target.dataset.remove){cart=cart.filter(s=>s[0]!==e.target.dataset.remove);render()}});
 document.querySelector('#cartButton').onclick=openDrawer;document.querySelector('#closeDrawer').onclick=closeDrawer;overlay.onclick=closeDrawer;
-const whatsappUrl='https://chat.whatsapp.com/Lv1FJlEjPhrDb8r5HyubqI?utm_source=ig&utm_medium=social&utm_content=link_in_bio';
+const whatsappUrl='https://wa.me/message/6QZG4SN6ZHR7K1';
+document.querySelectorAll('a[href*="chat.whatsapp.com"]').forEach((link)=>{link.href=whatsappUrl});
 let pendingMessage='';
 document.querySelector('#continue').onclick=()=>{
   if(!cart.length)return;
@@ -44,7 +45,7 @@ document.querySelector('#continue').onclick=()=>{
   document.querySelector('#modal').classList.add('open');
 };
 document.querySelector('#copyMessage').onclick=async()=>{try{await navigator.clipboard.writeText(pendingMessage);document.querySelector('#copyMessage').textContent='¡Mensaje copiado!';document.querySelector('#openWhatsapp').style.display='block'}catch{document.querySelector('#copyMessage').textContent='No se pudo copiar; mantené presionado para copiar';document.querySelector('#openWhatsapp').style.display='block'}};
-document.querySelector('#openWhatsapp').onclick=()=>window.open(whatsappUrl+'&text='+encodeURIComponent(pendingMessage),'_blank','noopener,noreferrer');
+document.querySelector('#openWhatsapp').onclick=()=>window.open(whatsappUrl+'?text='+encodeURIComponent(pendingMessage),'_blank','noopener,noreferrer');
 document.querySelector('#done').onclick=()=>document.querySelector('#modal').classList.remove('open');document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').classList.remove('open');
 const themeToggle=document.querySelector('#themeToggle');
 if(localStorage.getItem('jeszell-theme')==='dark')document.body.classList.add('dark');
